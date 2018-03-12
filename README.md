@@ -5,27 +5,27 @@
 ## 使用方法
 接受发送对象要统一，且接受方法参数有且只有一个（例：User user）
 
-1.接受类注册，定义接受方法
+1. 接受类注册，定义接受方法
 >@Subscribe(threadMode = ThreadMode.MAIN)
 public void onMessageEvent(User user) {/* Do something */};
 
 Register and unregister your subscriber. For example on Android, activities and fragments should usually register according to their life cycle:
 
- >@Override
+ '@Override
  public void onCreate() {
      super.onCreate(savedInstanceState);
      EventCar.getDefault().register(this);
- }
+ }'
 
- >@Override  
+ > @Override
  public void onDestroy() {
      super.onDestroy();
      EventCar.getDefault().unregister(this);
  }
 
-2.发送数据
+2. 发送数据
 
->EventBus.getDefault().post(new User());
+> EventBus.getDefault().post(new User());
 
 ## How to
 
