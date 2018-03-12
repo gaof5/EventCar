@@ -6,17 +6,19 @@
 接受发送对象要统一，且接受方法参数有且只有一个（例：User user）
 
 1. 接受类注册，定义接受方法
->@Subscribe(threadMode = ThreadMode.MAIN)
+```java
+@Subscribe(threadMode = ThreadMode.MAIN)
 public void onMessageEvent(User user) {/* Do something */};
+```
 
 Register and unregister your subscriber. For example on Android, activities and fragments should usually register according to their life cycle:
 
 ```java
  @Override<Br/>
- public void onCreate() {<Br/>
-     super.onCreate(savedInstanceState);<Br/>
-     EventCar.getDefault().register(this);<Br/>
- }<Br/>
+ public void onCreate() {
+     super.onCreate(savedInstanceState);
+     EventCar.getDefault().register(this);
+ }
 
  @Override
  public void onDestroy() {
@@ -26,8 +28,9 @@ Register and unregister your subscriber. For example on Android, activities and 
  ```
 
 2. 发送数据
-
-> EventBus.getDefault().post(new User());
+```java
+EventBus.getDefault().post(new User());
+ ```
 
 ## How to
 
