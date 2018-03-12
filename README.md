@@ -1,21 +1,23 @@
 # EventCar
 根据EventBus原理自写数据传递框架
-##使用方法
+
+
+## 使用方法
 接受发送对象要统一，且接受方法参数有且只有一个（例：User user）
 
-1. 接受类注册，定义接受方法
+1.接受类注册，定义接受方法
 >@Subscribe(threadMode = ThreadMode.MAIN)
 public void onMessageEvent(User user) {/* Do something */};
 
 Register and unregister your subscriber. For example on Android, activities and fragments should usually register according to their life cycle:
 
->@Override
+ >@Override
  public void onStart() {
      super.onStart();
      EventCar.getDefault().register(this);
  }
 
->@Override
+ >@Override
  public void onStop() {
      super.onStop();
      EventCar.getDefault().unregister(this);
@@ -25,7 +27,7 @@ Register and unregister your subscriber. For example on Android, activities and 
 
 >EventBus.getDefault().post(new User());
 
-##How to
+## How to
 
 To get a Git project into your build:
 
