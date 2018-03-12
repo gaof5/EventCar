@@ -12,14 +12,14 @@ public void onMessageEvent(User user) {/* Do something */};
 Register and unregister your subscriber. For example on Android, activities and fragments should usually register according to their life cycle:
 
  >@Override
- public void onStart() {
-     super.onStart();
+ public void onCreate() {
+     super.onCreate(savedInstanceState);
      EventCar.getDefault().register(this);
  }
 
- >@Override
- public void onStop() {
-     super.onStop();
+ >@Override  
+ public void onDestroy() {
+     super.onDestroy();
      EventCar.getDefault().unregister(this);
  }
 
